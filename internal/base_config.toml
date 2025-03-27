@@ -2,9 +2,9 @@
 prefix = ""
 port = "42069"
 host = "0.0.0.0"
-enable-send = true
+enable_send = true
 
 [cron]
 
 [google-chat]
-webhook-url = "https://chat.googleapis.com/your-webhook-url"
+webhook_url = "https://chat.googleapis.com/your-webhook-url"

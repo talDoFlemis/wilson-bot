@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	PREFIX = "WILSON_BOT"
+	PREFIX = "WILSONBOT__"
 )
 
 var k = koanf.New(".")
@@ -25,7 +25,7 @@ type HTTPConfig struct {
 	Port       string `koanf:"port"`
 	Prefix     string `koanf:"prefix"`
 	Host       string `koanf:"host"`
-	EnableSend bool   `koanf:"enable-send"`
+	EnableSend bool   `koanf:"enable_send"`
 }
 
 type CronConfig struct {
@@ -38,7 +38,7 @@ type GoogleChatConfig struct {
 type Config struct {
 	HTTPConfig       HTTPConfig       `koanf:"http"`
 	CronConfig       CronConfig       `koanf:"cron"`
-	GoogleChatConfig GoogleChatConfig `koanf:"google-chat"`
+	GoogleChatConfig GoogleChatConfig `koanf:"google_chat"`
 }
 
 func LoadConfig(ctx context.Context) (*Config, error) {
@@ -50,7 +50,7 @@ func LoadConfig(ctx context.Context) (*Config, error) {
 
 	err = k.Load(env.Provider(PREFIX, ".", func(s string) string {
 		lowerCased := strings.ToLower(s)
-		replacer := strings.NewReplacer(PREFIX, "", "_", ".", "-", "")
+		replacer := strings.NewReplacer(strings.ToLower(PREFIX), "", "__", ".")
 		return replacer.Replace(lowerCased)
 	}), nil)
 	if err != nil {
