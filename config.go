@@ -22,9 +22,10 @@ var k = koanf.New(".")
 var baseConfig []byte
 
 type HTTPConfig struct {
-	Port   string `koanf:"port"`
-	Prefix string `koanf:"prefix"`
-	Host   string `koanf:"host"`
+	Port       string `koanf:"port"`
+	Prefix     string `koanf:"prefix"`
+	Host       string `koanf:"host"`
+	EnableSend bool   `koanf:"enable-send"`
 }
 
 type CronConfig struct {

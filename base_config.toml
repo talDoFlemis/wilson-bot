@@ -1,7 +1,8 @@
 [http]
-prefix = "/"
+prefix = ""
 port = "42069"
 host = "0.0.0.0"
+enable-send = true
 
 [cron]
 

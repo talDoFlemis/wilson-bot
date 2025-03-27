@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"log/slog"
+	"math/rand"
+	"time"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -10,19 +12,27 @@ import (
 )
 
 type Server struct {
-	messageStorer MessageStorer
-	echoServer    *echo.Echo
+	messageStorer      MessageStorer
+	googleChatProvider GoogleChatProvider
+	sendMessages       bool
+	echoServer         *echo.Echo
 }
 
-func NewServer(cfg HTTPConfig, messageStorer MessageStorer) *Server {
+func NewServer(
+	cfg HTTPConfig,
+	messageStorer MessageStorer,
+	googleChatProvider GoogleChatProvider,
+) *Server {
 	e := echo.New()
 
 	e.Use(slogecho.New(slog.Default()))
 	e.Use(middleware.Recover())
 
 	server := &Server{
-		messageStorer: messageStorer,
-		echoServer:    e,
+		messageStorer:      messageStorer,
+		googleChatProvider: googleChatProvider,
+		echoServer:         e,
+		sendMessages:       cfg.EnableSend,
 	}
 
 	api := e.Group(cfg.Prefix)
@@ -30,6 +40,7 @@ func NewServer(cfg HTTPConfig, messageStorer MessageStorer) *Server {
 
 	messagesRouter.GET("/", server.GetAllMessages)
 	messagesRouter.GET("/:id", server.GetMessageById)
+	messagesRouter.POST("/", server.SendMessage)
 
 	return server
 }
@@ -56,6 +67,35 @@ func (s *Server) GetMessageById(c echo.Context) error {
 	}
 
 	return c.JSON(500, map[string]string{"error": err.Error()})
+}
+
+func (s *Server) SendMessage(c echo.Context) error {
+	if !s.sendMessages {
+		return c.JSON(403, map[string]string{"error": "sending messages is disabled"})
+	}
+
+	messages, err := s.messageStorer.GetAllMessages(c.Request().Context())
+	if err != nil {
+		return c.JSON(500, map[string]string{"error": err.Error()})
+	}
+
+	if len(messages) == 0 {
+		return c.JSON(404, map[string]string{"error": "no messages available"})
+	}
+
+	// Seed random generator (only needed once in main function)
+	rand.Seed(time.Now().UnixNano())
+
+	// Select a random message
+	randomIndex := rand.Intn(len(messages))
+	randomMessage := messages[randomIndex]
+
+	err = s.googleChatProvider.SendMessage(c.Request().Context(), randomMessage)
+	if err != nil {
+		return c.JSON(500, map[string]string{"error": err.Error()})
+	}
+
+	return c.JSON(200, map[string]string{"message": "message sent"})
 }
 
 func (s *Server) Start(addr string) error {
