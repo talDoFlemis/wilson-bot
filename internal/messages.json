@@ -1,8 +1,38 @@
 [
   {
-    "id": "",
+    "id": "101eda5f-c2ca-46f1-8bdd-d3820517c7ba",
     "message": "Esse dai se finge de morto para comer o c# do coveiro",
-    "sentiment": "",
-    "tags": [""]
+    "sentiment": "neutral",
+    "tags": ["violence"]
+  },
+  {
+    "id": "2a89e500-7e29-41b5-bca7-5d4d0a76cca7",
+    "message": "Não vale uma sibalena vencida",
+    "sentiment": "neutral",
+    "tags": ["general"]
+  },
+  {
+    "id": "cc9fff43-bf8c-452e-a336-3958bd163123",
+    "message": "Tá em qual semestre da faculdade? kkk",
+    "sentiment": "neutral",
+    "tags": ["education"]
+  },
+  {
+    "id": "2a410156-92a7-4530-9037-08bce6cc5c1d",
+    "message": "Não sabe o que é um dump",
+    "sentiment": "neutral",
+    "tags": ["tech"]
+  },
+  {
+    "id": "c63e83dc-0d90-4136-99b8-73174b4952c3",
+    "message": "MATARAM, MATARAM, MATARAM. Mataram o seu boguinha",
+    "sentiment": "neutral",
+    "tags": ["violence"]
+  },
+  {
+    "id": "30877e9b-624b-450d-88cb-241b3252c816",
+    "message": "Ei Mannnnnnnnnnnnnnnnnnnnnnnnnn",
+    "sentiment": "neutral",
+    "tags": ["casual"]
   }
 ]
