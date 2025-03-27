@@ -36,6 +36,10 @@ func NewServer(
 	}
 
 	api := e.Group(cfg.Prefix)
+	api.GET("/healthz", func(c echo.Context) error {
+		return c.JSON(200, map[string]string{"status": "ok"})
+	})
+
 	messagesRouter := api.Group("/messages")
 
 	messagesRouter.GET("/", server.GetAllMessages)
