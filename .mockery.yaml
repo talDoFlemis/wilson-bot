@@ -1,0 +1,10 @@
+with-expecter: True
+recursive: true
+all: true
+filename: "Mock{{.InterfaceName}}.go"
+dir: "{{.InterfaceDir}}"
+mockname: "Mock{{.InterfaceName}}"
+outpkg: "{{.PackageName}}"
+inpackage: true
+packages:
+  github.com/taldoflemis/wilson-bot/internal:
