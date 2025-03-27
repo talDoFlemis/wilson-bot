@@ -1,7 +1,6 @@
 package internal
 
 import (
-	"context"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -11,27 +10,9 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-// Mock MessageStorer
-type MockMessageStorer struct {
-	mock.Mock
-}
-
-func (m *MockMessageStorer) GetAllMessages(ctx context.Context) ([]Message, error) {
-	args := m.Called(ctx)
-	return args.Get(0).([]Message), args.Error(1)
-}
-
-func (m *MockMessageStorer) GetMessageByID(ctx context.Context, id string) (*Message, error) {
-	args := m.Called(ctx, id)
-	if msg := args.Get(0); msg != nil {
-		return msg.(*Message), args.Error(1)
-	}
-	return nil, args.Error(1)
-}
-
 func TestGetAllMessages(t *testing.T) {
 	e := echo.New()
-	mockStore := new(MockMessageStorer)
+	mockStore := NewMockMessageStorer(t)
 
 	expectedMessages := []Message{
 		{Id: "1", Message: "Hello"},
@@ -96,10 +77,11 @@ func TestGetMessageByIdNotFound(t *testing.T) {
 }
 
 func TestNewServer(t *testing.T) {
-	mockStore := new(MockMessageStorer)
+	mockStore := NewMockMessageStorer(t)
+	mockGoogleProvider := NewMockGoogleChatProvider(t)
 	cfg := HTTPConfig{Prefix: "/api"}
 
-	server := NewServer(cfg, mockStore)
+	server := NewServer(cfg, mockStore, mockGoogleProvider)
 
 	assert.NotNil(t, server)
 	assert.NotNil(t, server.echoServer)
