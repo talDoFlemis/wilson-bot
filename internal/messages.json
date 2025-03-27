@@ -40,5 +40,11 @@
     "message": "Aqui nessa região a gente ta dando o c# para não comprar anticoncepcional",
     "sentiment": "neutral",
     "tags": ["casual"]
+  },
+  {
+    "id": "ec2302dd-d458-4be4-9854-d60383afdf3a",
+    "message": "Ai que saudade de um beija c#",
+    "sentiment": "neutral",
+    "tags": ["casual"]
   }
 ]
