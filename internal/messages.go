@@ -9,7 +9,7 @@ import (
 )
 
 //go:embed messages.json
-var rawMessages []byte
+var RawMessages []byte
 
 var (
 	ErrMessageNotFound = errors.New("message not found")
