@@ -4,3 +4,6 @@ port = "42069"
 host = "0.0.0.0"
 
 [cron]
+
+[google-chat]
+webhook-url = "https://chat.googleapis.com/your-webhook-url"
