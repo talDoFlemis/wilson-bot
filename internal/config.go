@@ -32,7 +32,7 @@ type CronConfig struct {
 }
 
 type GoogleChatConfig struct {
-	WebhookURL string `koanf:"webhook-url"`
+	WebhookURL string `koanf:"webhook_url"`
 }
 
 type Config struct {
