@@ -6,5 +6,5 @@ enable_send = true
 
 [cron]
 
-[google-chat]
+[google_chat]
 webhook_url = "https://chat.googleapis.com/your-webhook-url"
