@@ -52,5 +52,11 @@
     "message": "Owwwwwwwwwwwwww beleeeeeeeeeeeeeeza!!!",
     "sentiment": "neutral",
     "tags": ["casual"]
+  },
+  {
+    "id": "c3b9115b-b85c-41d0-b240-3493d7c426e8",
+    "message": "eh mt rapariga de soldado",
+    "sentiment": "neutral",
+    "tags": ["violence"]
   }
 ]
