@@ -58,5 +58,11 @@
     "message": "eh mt rapariga de soldado",
     "sentiment": "neutral",
     "tags": ["violence"]
+  },
+  {
+    "id": "b1a73df3-3928-41a6-89d4-b305aa73447c",
+    "message": "A DAILY! A DAILY! A DAILY!!!!",
+    "sentiment": "neutral",
+    "tags": ["casual"]
   }
 ]
