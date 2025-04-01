@@ -98,5 +98,17 @@
       "wisdom",
       "inspiration"
     ]
+  },
+  {
+    "id": "d2f45a1c-8b9e-4b1d-9f4a-7c6e3b4fbb12",
+    "message": "Quanto melhor é o burro, mais carga botam nele",
+    "sentiment": "neutral",
+    "tags": [
+      "proverb",
+      "work",
+      "effort",
+      "injustice",
+      "wisdom"
+    ]
   }
 ]
