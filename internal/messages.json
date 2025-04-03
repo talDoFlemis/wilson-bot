@@ -3,124 +3,90 @@
     "id": "101eda5f-c2ca-46f1-8bdd-d3820517c7ba",
     "message": "Esse dai se finge de morto para comer o c# do coveiro",
     "sentiment": "neutral",
-    "tags": [
-      "violence"
-    ]
+    "tags": ["violence"]
   },
   {
     "id": "2a89e500-7e29-41b5-bca7-5d4d0a76cca7",
     "message": "Não vale uma sibalena vencida",
     "sentiment": "neutral",
-    "tags": [
-      "general"
-    ]
+    "tags": ["general"]
   },
   {
     "id": "cc9fff43-bf8c-452e-a336-3958bd163123",
     "message": "Tá em qual semestre da faculdade? kkk",
     "sentiment": "neutral",
-    "tags": [
-      "education"
-    ]
+    "tags": ["education"]
   },
   {
     "id": "2a410156-92a7-4530-9037-08bce6cc5c1d",
     "message": "Não sabe o que é um dump",
     "sentiment": "neutral",
-    "tags": [
-      "tech"
-    ]
+    "tags": ["tech"]
   },
   {
     "id": "c63e83dc-0d90-4136-99b8-73174b4952c3",
     "message": "MATARAM, MATARAM, MATARAM. Mataram o seu boguinha",
     "sentiment": "neutral",
-    "tags": [
-      "violence"
-    ]
+    "tags": ["violence"]
   },
   {
     "id": "30877e9b-624b-450d-88cb-241b3252c816",
     "message": "Ei Mannnnnnnnnnnnnnnnnnnnnnnnnn",
     "sentiment": "neutral",
-    "tags": [
-      "casual"
-    ]
+    "tags": ["casual"]
   },
   {
     "id": "ec2302dd-d458-4be4-9854-d60383afdf3d",
     "message": "Aqui nessa região a gente ta dando o c# para não comprar anticoncepcional",
     "sentiment": "neutral",
-    "tags": [
-      "casual"
-    ]
+    "tags": ["casual"]
   },
   {
     "id": "ec2302dd-d458-4be4-9854-d60383afdf3a",
     "message": "Ai que saudade de um beija c#",
     "sentiment": "neutral",
-    "tags": [
-      "casual"
-    ]
+    "tags": ["casual"]
   },
   {
     "id": "62aead4a-c373-410c-a80e-b9935b78d45c",
     "message": "Owwwwwwwwwwwwww beleeeeeeeeeeeeeeza!!!",
     "sentiment": "neutral",
-    "tags": [
-      "casual"
-    ]
+    "tags": ["casual"]
   },
   {
     "id": "c3b9115b-b85c-41d0-b240-3493d7c426e8",
     "message": "eh mt rapariga de soldado",
     "sentiment": "neutral",
-    "tags": [
-      "violence"
-    ]
+    "tags": ["violence"]
   },
   {
     "id": "b1a73df3-3928-41a6-89d4-b305aa73447c",
     "message": "A DAILY! A DAILY! A DAILY!!!!",
     "sentiment": "neutral",
-    "tags": [
-      "casual"
-    ]
+    "tags": ["casual"]
   },
   {
     "id": "2298c2d9-5c40-45eb-83b6-f0299b7bb78d",
     "message": "Jamais questionarei os ensinamentos do mestre Mestre Cláudio \nNa escuridão, mestre Cláudio é luz \nNo barulho, mestre Cláudio é silêncio \nNa fome, mestre Cláudio é alimento \nNa solidão, mestre Cláudio é companhia",
     "sentiment": "positive",
-    "tags": [
-      "admiration",
-      "respect",
-      "master",
-      "wisdom",
-      "inspiration"
-    ]
+    "tags": ["admiration", "respect", "master", "wisdom", "inspiration"]
   },
   {
     "id": "d2f45a1c-8b9e-4b1d-9f4a-7c6e3b4fbb12",
     "message": "Quanto melhor é o burro, mais carga botam nele",
     "sentiment": "neutral",
-    "tags": [
-      "proverb",
-      "work",
-      "effort",
-      "injustice",
-      "wisdom"
-    ]
+    "tags": ["proverb", "work", "effort", "injustice", "wisdom"]
   },
   {
     "id": "a7c2d5e8-4f9b-4b7f-83c1-2e9d6b8a1f34",
     "message": "Prego que se destaca leva martelada",
     "sentiment": "neutral",
-    "tags": [
-      "proverb",
-      "conformity",
-      "criticism",
-      "wisdom",
-      "society"
-    ]
+    "tags": ["proverb", "conformity", "criticism", "wisdom", "society"]
+  },
+  {
+    "id": "f3b7d9e2-6a4c-4d8a-9c2e-1e5f7b3a8d90",
+    "message": "Não vejo necessidade no kit",
+    "sentiment": "neutral",
+    "tags": ["opinion", "necessity", "evaluation"]
   }
 ]
