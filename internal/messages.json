@@ -88,5 +88,11 @@
     "message": "Não vejo necessidade no kit",
     "sentiment": "neutral",
     "tags": ["opinion", "necessity", "evaluation"]
+  },
+  {
+    "id": "4ee5c9c6-b154-4a14-9f15-f64791a59c55",
+    "message": "Se até o Trump ta taxando, quem dirá o Lula",
+    "sentiment": "neutral",
+    "tags": ["opinion"]
   }
 ]
