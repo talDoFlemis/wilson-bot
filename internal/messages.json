@@ -94,5 +94,11 @@
     "message": "Se até o Trump ta taxando, quem dirá o Lula",
     "sentiment": "neutral",
     "tags": ["opinion"]
+  },
+  {
+    "id": "7c27f4b1-abdc-4f38-91b3-d8d222535505",
+    "message": "Você se faz de pão pra levar linguiça",
+    "sentiment": "neutral",
+    "tags": ["opinion"]
   }
 ]
