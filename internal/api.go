@@ -45,6 +45,7 @@ func NewServer(
 	messagesRouter.GET("/", server.GetAllMessages)
 	messagesRouter.GET("/:id", server.GetMessageById)
 	messagesRouter.POST("/", server.SendMessage)
+	messagesRouter.POST("/:id", server.SendMessageById)
 
 	return server
 }
@@ -71,6 +72,26 @@ func (s *Server) GetMessageById(c echo.Context) error {
 	}
 
 	return c.JSON(500, map[string]string{"error": err.Error()})
+}
+
+func (s *Server) SendMessageById(c echo.Context) error {
+	id := c.Param("id")
+
+	if !s.sendMessages {
+		return c.JSON(403, map[string]string{"error": "sending messages is disabled"})
+	}
+
+	message, err := s.messageStorer.GetMessageByID(c.Request().Context(), id)
+	if err != nil {
+		return c.JSON(500, map[string]string{"error": err.Error()})
+	}
+
+	err = s.googleChatProvider.SendMessage(c.Request().Context(), *message)
+	if err != nil {
+		return c.JSON(500, map[string]string{"error": err.Error()})
+	}
+
+	return c.JSON(200, map[string]string{"message": "message sent"})
 }
 
 func (s *Server) SendMessage(c echo.Context) error {
