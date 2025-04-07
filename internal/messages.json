@@ -90,6 +90,20 @@
     "tags": ["opinion", "necessity", "evaluation"]
   },
   {
+    "id": "4c6b6dac-52d7-4bed-a123-b5ef6d32ec76",
+    "message": "O pivete não entende que um endpoint pode fazer duas coisas kkkk",
+    "sentiment": "neutral",
+    "tags": ["opinion", "criticism"]
+  },
+
+  {
+    "id": "1e2b90f0-bba8-4894-bc80-4684835baa0f",
+    "message": "to com a paciencia do tamanho do priquito de uma lêndea.",
+    "sentiment": "violence",
+    "tags": ["proverb", "violence"]
+  },
+
+  {
     "id": "4ee5c9c6-b154-4a14-9f15-f64791a59c55",
     "message": "Se até o Trump ta taxando, quem dirá o Lula",
     "sentiment": "neutral",
