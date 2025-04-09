@@ -55,6 +55,21 @@ func main() {
 	}
 
 	dumpMessageStorer := internal.NewMessageStorer(messages)
+
+	messageCronJob, err := internal.NewMessageCronJob(cfg.CronConfig, dumpMessageStorer, hardcodedGoogleChatProvider)
+	if err != nil {
+		slog.ErrorContext(ctx, "failed to create message cron job", slog.Any("error", err))
+		retcode = 1
+		return
+	}
+
+	err = messageCronJob.Start(ctx)
+	if err != nil {
+		slog.ErrorContext(ctx, "failed to start message cron job", slog.Any("error", err))
+		retcode = 1
+		return
+	}
+
 	server := internal.NewServer(cfg.HTTPConfig, dumpMessageStorer, hardcodedGoogleChatProvider)
 	errChan := make(chan error)
 
@@ -79,4 +94,7 @@ func main() {
 		retcode = 1
 		return
 	}
+
+	// Stop the cron job gracefully
+	messageCronJob.Stop(ctx)
 }

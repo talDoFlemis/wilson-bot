@@ -5,6 +5,8 @@ host = "0.0.0.0"
 enable_send = true
 
 [cron]
+enabled = true
+cron_string = "0 8 * * 1-5"
 
 [google_chat]
 webhook_url = "https://chat.googleapis.com/your-webhook-url"

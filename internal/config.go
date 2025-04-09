@@ -29,6 +29,8 @@ type HTTPConfig struct {
 }
 
 type CronConfig struct {
+	Enabled bool `koanf:"enabled"`
+	CronString string `koanf:"cron_string"`
 }
 
 type GoogleChatConfig struct {
