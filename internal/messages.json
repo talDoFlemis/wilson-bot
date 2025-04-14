@@ -102,11 +102,16 @@
     "sentiment": "violence",
     "tags": ["proverb", "violence"]
   },
-
   {
     "id": "4ee5c9c6-b154-4a14-9f15-f64791a59c55",
     "message": "Se até o Trump ta taxando, quem dirá o Lula",
     "sentiment": "neutral",
     "tags": ["opinion"]
+  },
+  {
+    "id": "e4d7a6f1-9b3e-44fc-b2f6-4c9e3c7a0d51",
+    "message": "Tão querendo te ver na horizontal",
+    "sentiment": "negative",
+    "tags": ["threat", "warning", "slang", "violence", "expression"]
   }
 ]
