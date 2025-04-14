@@ -113,5 +113,11 @@
     "message": "Tão querendo te ver na horizontal",
     "sentiment": "negative",
     "tags": ["threat", "warning", "slang", "violence", "expression"]
+  },
+  {
+    "id": "b59f1e88-74f3-4df3-8736-7a2a72fdc7e5",
+    "message": "Tão botando no meu boguinha",
+    "sentiment": "negative",
+    "tags": ["complaint", "slang", "frustration", "informal", "humor"]
   }
 ]
