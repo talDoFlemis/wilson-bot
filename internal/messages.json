@@ -119,5 +119,11 @@
     "message": "Tão botando no meu boguinha",
     "sentiment": "negative",
     "tags": ["complaint", "slang", "frustration", "informal", "humor"]
+  },
+  {
+    "id": "d6a9e7f3-5c4d-4d79-8a2a-1f9c3a5b6f21",
+    "message": "Ele se fez de pão para levar linguiça",
+    "sentiment": "mixed",
+    "tags": ["slang", "double entendre", "humor", "sex", "irony"]
   }
 ]
