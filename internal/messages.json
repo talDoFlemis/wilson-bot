@@ -125,5 +125,11 @@
     "message": "Ele se fez de pão para levar linguiça",
     "sentiment": "mixed",
     "tags": ["slang", "double entendre", "humor", "sex", "irony"]
+  },
+  {
+    "id": "f7b3c2d1-2a6e-4d9a-94d7-7b3f9e8a1d62",
+    "message": "Se quiser tomar o Ozempic... Eu dou a pica, o Oze tu procura.",
+    "sentiment": "humorous",
+    "tags": ["wordplay", "slang", "humor", "double entendre", "informal", "sexual innuendo"]
   }
 ]
