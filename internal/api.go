@@ -47,6 +47,9 @@ func NewServer(
 	messagesRouter.POST("/", server.SendMessage)
 	messagesRouter.POST("/:id", server.SendMessageById)
 
+	webhookRouter := api.Group("/webhook")
+	webhookRouter.POST("/broken", server.SendBrokenMessageWebhook)
+
 	return server
 }
 
@@ -121,6 +124,24 @@ func (s *Server) SendMessage(c echo.Context) error {
 	}
 
 	return c.JSON(200, map[string]string{"message": "message sent"})
+}
+
+func (s *Server) SendBrokenMessageWebhook(c echo.Context) error {
+	if !s.sendMessages {
+		return c.JSON(403, map[string]string{"error": "sending messages is disabled"})
+	}
+
+	var brokenMessage BrokenMessage
+	if err := c.Bind(&brokenMessage); err != nil {
+		return c.JSON(400, map[string]string{"error": "invalid request"})
+	}
+
+	err := s.googleChatProvider.SendBrokenMessage(c.Request().Context(), brokenMessage)
+	if err != nil {
+		return c.JSON(500, map[string]string{"error": err.Error()})
+	}
+
+	return c.JSON(200, map[string]string{"message": "broken message sent"})
 }
 
 func (s *Server) Start(addr string) error {

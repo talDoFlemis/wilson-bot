@@ -22,6 +22,14 @@ type Message struct {
 	Tags      []string `json:"tags"`
 }
 
+type BrokenMessage struct {
+	Id              string `json:"id"`
+	Name            string `json:"name"`
+	Motive          string `json:"motive"`
+	TimeSinceBroken string `json:"time_since_broken"`
+	DayOfBreakage   string `json:"day_of_breakage"`
+}
+
 func GetMessages(ctx context.Context, rawMessagesData []byte) ([]Message, error) {
 	var messages []Message
 

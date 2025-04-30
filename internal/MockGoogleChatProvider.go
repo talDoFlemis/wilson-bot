@@ -21,6 +21,53 @@ func (_m *MockGoogleChatProvider) EXPECT() *MockGoogleChatProvider_Expecter {
 	return &MockGoogleChatProvider_Expecter{mock: &_m.Mock}
 }
 
+// SendBrokenMessage provides a mock function with given fields: ctx, message
+func (_m *MockGoogleChatProvider) SendBrokenMessage(ctx context.Context, message BrokenMessage) error {
+	ret := _m.Called(ctx, message)
+
+	if len(ret) == 0 {
+		panic("no return value specified for SendBrokenMessage")
+	}
+
+	var r0 error
+	if rf, ok := ret.Get(0).(func(context.Context, BrokenMessage) error); ok {
+		r0 = rf(ctx, message)
+	} else {
+		r0 = ret.Error(0)
+	}
+
+	return r0
+}
+
+// MockGoogleChatProvider_SendBrokenMessage_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'SendBrokenMessage'
+type MockGoogleChatProvider_SendBrokenMessage_Call struct {
+	*mock.Call
+}
+
+// SendBrokenMessage is a helper method to define mock.On call
+//   - ctx context.Context
+//   - message BrokenMessage
+func (_e *MockGoogleChatProvider_Expecter) SendBrokenMessage(ctx interface{}, message interface{}) *MockGoogleChatProvider_SendBrokenMessage_Call {
+	return &MockGoogleChatProvider_SendBrokenMessage_Call{Call: _e.mock.On("SendBrokenMessage", ctx, message)}
+}
+
+func (_c *MockGoogleChatProvider_SendBrokenMessage_Call) Run(run func(ctx context.Context, message BrokenMessage)) *MockGoogleChatProvider_SendBrokenMessage_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		run(args[0].(context.Context), args[1].(BrokenMessage))
+	})
+	return _c
+}
+
+func (_c *MockGoogleChatProvider_SendBrokenMessage_Call) Return(_a0 error) *MockGoogleChatProvider_SendBrokenMessage_Call {
+	_c.Call.Return(_a0)
+	return _c
+}
+
+func (_c *MockGoogleChatProvider_SendBrokenMessage_Call) RunAndReturn(run func(context.Context, BrokenMessage) error) *MockGoogleChatProvider_SendBrokenMessage_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // SendMessage provides a mock function with given fields: ctx, message
 func (_m *MockGoogleChatProvider) SendMessage(ctx context.Context, message Message) error {
 	ret := _m.Called(ctx, message)
