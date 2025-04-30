@@ -13,6 +13,20 @@
           {
             "widgets": [
               {
+                "chipList": {
+                  "chips": [
+                    {
+                      "label": "{{ .Name }}",
+                      "icon": {
+                        "materialIcon": {
+                          "name": "person"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
                 "decoratedText": {
                   "icon": {
                     "materialIcon": {
@@ -40,20 +54,6 @@
                     }
                   },
                   "text": "<b>Dia da quebra:</b> {{ .DayOfBreakage }}"
-                }
-              },
-              {
-                "chipList": {
-                  "chips": [
-                    {
-                      "label": "{{ .Name }}",
-                      "icon": {
-                        "materialIcon": {
-                          "name": "person"
-                        }
-                      }
-                    }
-                  ]
                 }
               }
             ]
