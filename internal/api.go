@@ -12,16 +12,16 @@ import (
 )
 
 type Server struct {
-	messageStorer      MessageStorer
-	googleChatProvider MessageSender
-	sendMessages       bool
-	echoServer         *echo.Echo
+	messageStorer MessageStorer
+	messageSender MessageSender
+	sendMessages  bool
+	echoServer    *echo.Echo
 }
 
 func NewServer(
 	cfg HTTPConfig,
 	messageStorer MessageStorer,
-	googleChatProvider MessageSender,
+	messageSender MessageSender,
 ) *Server {
 	e := echo.New()
 
@@ -29,10 +29,10 @@ func NewServer(
 	e.Use(middleware.Recover())
 
 	server := &Server{
-		messageStorer:      messageStorer,
-		googleChatProvider: googleChatProvider,
-		echoServer:         e,
-		sendMessages:       cfg.EnableSend,
+		messageStorer: messageStorer,
+		messageSender: messageSender,
+		echoServer:    e,
+		sendMessages:  cfg.EnableSend,
 	}
 
 	api := e.Group(cfg.Prefix)
@@ -89,7 +89,7 @@ func (s *Server) SendMessageById(c echo.Context) error {
 		return c.JSON(500, map[string]string{"error": err.Error()})
 	}
 
-	err = s.googleChatProvider.SendMessage(c.Request().Context(), *message)
+	err = s.messageSender.SendMessage(c.Request().Context(), *message)
 	if err != nil {
 		return c.JSON(500, map[string]string{"error": err.Error()})
 	}
@@ -118,7 +118,7 @@ func (s *Server) SendMessage(c echo.Context) error {
 	randomIndex := rand.Intn(len(messages))
 	randomMessage := messages[randomIndex]
 
-	err = s.googleChatProvider.SendMessage(c.Request().Context(), randomMessage)
+	err = s.messageSender.SendMessage(c.Request().Context(), randomMessage)
 	if err != nil {
 		return c.JSON(500, map[string]string{"error": err.Error()})
 	}
@@ -136,7 +136,7 @@ func (s *Server) SendBrokenMessageWebhook(c echo.Context) error {
 		return c.JSON(400, map[string]string{"error": "invalid request"})
 	}
 
-	err := s.googleChatProvider.SendBrokenMessage(c.Request().Context(), brokenMessage)
+	err := s.messageSender.SendBrokenMessage(c.Request().Context(), brokenMessage)
 	if err != nil {
 		return c.JSON(500, map[string]string{"error": err.Error()})
 	}
