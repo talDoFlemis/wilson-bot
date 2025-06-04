@@ -88,7 +88,7 @@ func (h *DiscordWebhookMessageSender) SendMessage(ctx context.Context, message i
 		return err
 	}
 
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode != http.StatusNoContent {
 		slog.ErrorContext(ctx, "unexpected status code", slog.Any("status_code", resp.StatusCode))
 		return errors.New("unexpected status code")
 	}
@@ -127,7 +127,7 @@ func (h *DiscordWebhookMessageSender) SendBrokenMessage(ctx context.Context, mes
 		return err
 	}
 
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode != http.StatusNoContent {
 		slog.ErrorContext(ctx, "unexpected status code", slog.Any("status_code", resp.StatusCode))
 		return errors.New("unexpected status code")
 	}
