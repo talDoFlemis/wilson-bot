@@ -13,7 +13,7 @@ import (
 
 type Server struct {
 	messageStorer      MessageStorer
-	googleChatProvider GoogleChatProvider
+	googleChatProvider MessageSender
 	sendMessages       bool
 	echoServer         *echo.Echo
 }
@@ -21,7 +21,7 @@ type Server struct {
 func NewServer(
 	cfg HTTPConfig,
 	messageStorer MessageStorer,
-	googleChatProvider GoogleChatProvider,
+	googleChatProvider MessageSender,
 ) *Server {
 	e := echo.New()
 

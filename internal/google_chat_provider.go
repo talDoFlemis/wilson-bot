@@ -16,12 +16,12 @@ var cardTemplate []byte
 //go:embed broken_card_template.json
 var brokenCardTemplate []byte
 
-type GoogleChatProvider interface {
+type MessageSender interface {
 	SendMessage(ctx context.Context, message Message) error
 	SendBrokenMessage(ctx context.Context, message BrokenMessage) error
 }
 
-type HardcodedGoogleChatProvider struct {
+type HardcodedGoogleChatWebhookMessageSender struct {
 	webhookURL         string
 	pearlCardTemplate  *template.Template
 	brokenCardTemplate *template.Template
@@ -42,10 +42,10 @@ type brokenTemplateData struct {
 }
 
 var (
-	_ GoogleChatProvider = (*HardcodedGoogleChatProvider)(nil)
+	_ MessageSender = (*HardcodedGoogleChatWebhookMessageSender)(nil)
 )
 
-func NewHardcodedGoogleChatProvider(webhookURL string) (*HardcodedGoogleChatProvider, error) {
+func NewHardcodedGoogleChatProvider(webhookURL string) (*HardcodedGoogleChatWebhookMessageSender, error) {
 	tmpl, err := template.New("email_body.tmpl.xml").Parse(string(cardTemplate))
 	if err != nil {
 		return nil, err
@@ -57,7 +57,7 @@ func NewHardcodedGoogleChatProvider(webhookURL string) (*HardcodedGoogleChatProv
 		return nil, err
 	}
 
-	return &HardcodedGoogleChatProvider{
+	return &HardcodedGoogleChatWebhookMessageSender{
 		webhookURL:         webhookURL,
 		pearlCardTemplate:  tmpl,
 		brokenCardTemplate: brokenTmpl,
@@ -65,7 +65,7 @@ func NewHardcodedGoogleChatProvider(webhookURL string) (*HardcodedGoogleChatProv
 	}, nil
 }
 
-func (h *HardcodedGoogleChatProvider) SendMessage(ctx context.Context, message Message) error {
+func (h *HardcodedGoogleChatWebhookMessageSender) SendMessage(ctx context.Context, message Message) error {
 	data := templateData{
 		Message: message.Message,
 	}
@@ -101,7 +101,7 @@ func (h *HardcodedGoogleChatProvider) SendMessage(ctx context.Context, message M
 }
 
 // SendBrokenMessage implements GoogleChatProvider.
-func (h *HardcodedGoogleChatProvider) SendBrokenMessage(ctx context.Context, message BrokenMessage) error {
+func (h *HardcodedGoogleChatWebhookMessageSender) SendBrokenMessage(ctx context.Context, message BrokenMessage) error {
 	data := brokenTemplateData{
 		ID:              message.Id,
 		Name:            message.Name,

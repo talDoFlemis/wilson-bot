@@ -12,7 +12,7 @@ import (
 // MessageCronJob handles scheduled message sending tasks
 type MessageCronJob struct {
 	messageStorer      MessageStorer
-	googleChatProvider GoogleChatProvider
+	googleChatProvider MessageSender
 	scheduler          gocron.Scheduler
 	cronString         string
 	enabled            bool
@@ -22,7 +22,7 @@ type MessageCronJob struct {
 func NewMessageCronJob(
 	cfg CronConfig,
 	messageStorer MessageStorer,
-	googleChatProvider GoogleChatProvider,
+	googleChatProvider MessageSender,
 ) (*MessageCronJob, error) {
 	scheduler, err := gocron.NewScheduler()
 	if err != nil {
