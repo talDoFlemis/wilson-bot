@@ -1,65 +1,33 @@
 {
-  "cardsV2": [
+  "content": null,
+  "embeds": [
     {
-      "cardId": "{{ .ID }}",
-      "card": {
-        "header": {
-          "title": "<b>Broken Time",
-          "subtitle": "Nova quebra registrada",
-          "imageUrl": "https://preview.redd.it/coomer-meme-please-v0-oczzteliqb5c1.png?width=2004&format=png&auto=webp&s=305ec437dcf4f04b779cb238dfaeb114abe2896a",
-          "imageType": "CIRCLE"
+      "title": "Broken Time",
+      "description": "Nova quebra registrada",
+      "color": 5814783,
+      "fields": [
+        {
+          "name": "Pessoa",
+          "value": "{{ .Name }}"
         },
-        "sections": [
-          {
-            "widgets": [
-              {
-                "chipList": {
-                  "chips": [
-                    {
-                      "label": "{{ .Name }}",
-                      "icon": {
-                        "materialIcon": {
-                          "name": "person"
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "decoratedText": {
-                  "icon": {
-                    "materialIcon": {
-                      "name": "ERROR"
-                    }
-                  },
-                  "text": "<b>Motivo:</b> {{ .Motive }}"
-                }
-              },
-              {
-                "decoratedText": {
-                  "icon": {
-                    "materialIcon": {
-                      "name": "SCHEDULE"
-                    }
-                  },
-                  "text": "<b>Tempo sem quebrar:</b> {{ .TimeSinceBroken }}"
-                }
-              },
-              {
-                "decoratedText": {
-                  "icon": {
-                    "materialIcon": {
-                      "name": "EVENT"
-                    }
-                  },
-                  "text": "<b>Dia da quebra:</b> {{ .DayOfBreakage }}"
-                }
-              }
-            ]
-          }
-        ]
+        {
+          "name": "Motivo",
+          "value": "{{ .Motive }}"
+        },
+        {
+          "name": "Tempo sem quebra",
+          "value": "{{ .TimeSinceBroken }}"
+        },
+        {
+          "name": "Dia da quebra",
+          "value": "{{ .DayOfBreakage }}",
+          "inline": true
+        }
+      ],
+      "image": {
+        "url": "https://preview.redd.it/coomer-meme-please-v0-oczzteliqb5c1.png?width=2004&format=png&auto=webp&s=305ec437dcf4f04b779cb238dfaeb114abe2896a"
       }
     }
-  ]
+  ],
+  "attachments": []
 }
