@@ -9,6 +9,7 @@ import (
 	"syscall"
 
 	"github.com/taldoflemis/wilson-bot/internal"
+	"github.com/taldoflemis/wilson-bot/internal/discord"
 )
 
 func main() {
@@ -45,18 +46,18 @@ func main() {
 		return
 	}
 
-	hardcodedGoogleChatProvider, err := internal.NewHardcodedGoogleChatProvider(
-		cfg.GoogleChatConfig.WebhookURL,
+	discordWebhookMessageSender, err := discord.NewDiscordWebhookMessageSender(
+		cfg.DiscordWebhookConfig.WebhookURL,
 	)
 	if err != nil {
-		slog.ErrorContext(ctx, "failed to create google chat provider", slog.Any("error", err))
+		slog.ErrorContext(ctx, "failed to create discord webhook message sender", slog.Any("error", err))
 		retcode = 1
 		return
 	}
 
 	dumpMessageStorer := internal.NewMessageStorer(messages)
 
-	messageCronJob, err := internal.NewMessageCronJob(cfg.CronConfig, dumpMessageStorer, hardcodedGoogleChatProvider)
+	messageCronJob, err := internal.NewMessageCronJob(cfg.CronConfig, dumpMessageStorer, discordWebhookMessageSender)
 	if err != nil {
 		slog.ErrorContext(ctx, "failed to create message cron job", slog.Any("error", err))
 		retcode = 1
@@ -70,7 +71,7 @@ func main() {
 		return
 	}
 
-	server := internal.NewServer(cfg.HTTPConfig, dumpMessageStorer, hardcodedGoogleChatProvider)
+	server := internal.NewServer(cfg.HTTPConfig, dumpMessageStorer, discordWebhookMessageSender)
 	errChan := make(chan error)
 
 	go func() {
