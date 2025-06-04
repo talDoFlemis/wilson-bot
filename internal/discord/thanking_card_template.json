@@ -1,0 +1,21 @@
+{
+  "content": null,
+  "embeds": [
+    {
+      "title": "Já agradeceu por trabalhar com o Wilson hoje?",
+      "description": "Lembrete diário de agradecimento e uma mensagem de motivação",
+      "color": 7340287,
+      "fields": [
+        {
+          "name": "Mensagem do dia",
+          "value": "{{ .Message }}",
+          "inline": true
+        }
+      ],
+      "image": {
+        "url": "https://w7.pngwing.com/pngs/504/252/png-transparent-pepe-the-frog-television-meme-meme-television-vertebrate-grass-thumbnail.png"
+      }
+    }
+  ],
+  "attachments": []
+}
