@@ -37,10 +37,15 @@ type GoogleChatConfig struct {
 	WebhookURL string `koanf:"webhook_url"`
 }
 
+type DiscordWebhookConfig struct {
+	WebhookURL string `koanf:"webhook_url"`
+}
+
 type Config struct {
 	HTTPConfig       HTTPConfig       `koanf:"http"`
 	CronConfig       CronConfig       `koanf:"cron"`
 	GoogleChatConfig GoogleChatConfig `koanf:"google_chat"`
+	DiscordWebhookConfig DiscordWebhookConfig `koanf:"discord_webhook"`
 }
 
 func LoadConfig(ctx context.Context) (*Config, error) {
