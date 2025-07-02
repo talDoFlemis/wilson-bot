@@ -131,5 +131,11 @@
     "message": "Se quiser tomar o Ozempic... Eu dou a pica, o Oze tu procura.",
     "sentiment": "humorous",
     "tags": ["wordplay", "slang", "humor", "double entendre", "informal", "sexual innuendo"]
+  },
+  {
+    "id": "36670e7b-9596-4294-89dd-0d6b149cfdd2",
+    "message": "Ei, a fulana ta é com aids é? Foi carnaval no pelo",
+    "sentiment": "humorous",
+    "tags": ["wordplay", "slang", "humor", "informal", "sexual innuendo"]
   }
 ]
